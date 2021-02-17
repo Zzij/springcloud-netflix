@@ -1,0 +1,17 @@
+server:
+  port: 1001
+
+spring:
+  application:
+    name: provider
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

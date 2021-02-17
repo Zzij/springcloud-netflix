@@ -1,0 +1,20 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /zuul
+spring:
+  application:
+    name: zuul-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5000/eureka
+
+zuul:
+  ignored-services: '*'   #不能使用serviceid去访问对应的服务
+  prefix: /zzj     #访问zuul的前缀
+  routes:
+    employee:
+      serviceId: provider
+      path: /zuul-provider/**
